@@ -40,6 +40,10 @@ int solve(vector<int>& v,  int anstemp)
             l = mid + 1;
         }
     }
+    if(anstemp==-1) return 0;
+
+    return anstemp;
+
 
    
 }
