@@ -9,43 +9,35 @@ typedef long long ll;
 #define PI 3.141592653589793238462
 #define set_bits __builtin_popcountll
 #define all(x) (x).begin(), (x).end()
-#define debug(x) cerr << x << " ";
-// 6 7 8 1 2
-// 0 0 0 1 1
-//first occurence is the index ,times it rotated 
-bool check(vector<int>& v, int mid)
+#define debug(x) cerr<<x<<" ";
+
+bool check(vector<int>&v,int mid)
 {
-   
-    //main line
-    if (v[mid] <v[0])
-    {
-        return true;
-    }
-    return false;
+   return v[mid]<v[0];
 }
 
-int solve(vector<int>& v,  int anstemp)
+
+//000001111111
+int mintomax(vector<int>&v)
 {
-    int l = 0, h = v.size() - 1;
-    while (l <= h)
+    int ans=-1;
+    int low=0,high=v.size()-1;
+    while(low<=high)
     {
-        int mid = l + (h - l) / 2;
-        if (check(v, mid))
+        int mid=low+(high-low)/2;
+        
+        if(check(v,mid))
         {
-            anstemp = mid;
-            h = mid - 1;
+            ans=mid;
+            high=mid-1;
         }
         else
         {
-            l = mid + 1;
+            low=mid+1;
         }
     }
-    if(anstemp==-1) return 0;
+    return ans;
 
-    return anstemp;
-
-
-   
 }
 
 int main()
@@ -53,27 +45,15 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    clock_t time_req = clock();
-
     int n;
-    cin >> n;
-    vector<int> v;
-    while (n--)
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
     {
-        int temp;
-        cin >> temp;
-        v.push_back(temp);
+        cin>>v[i];    
     }
 
+    cout<<mintomax(v);
     
-
-    int anstemp = -1;
-    int ans = solve(v, anstemp);
-    cout<<ans;
-    
-
-#ifndef ONLINE_JUDGE
-    cout << endl
-         << "Time: " << fixed << setprecision(6) << ((double)(clock() - time_req)) / CLOCKS_PER_SEC << endl;
-#endif
 }
+

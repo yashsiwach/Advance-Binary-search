@@ -13,7 +13,7 @@ typedef long long ll;
 
 bool check(vector<int>&v,int mid,int target)
 {
-   return v[mid]>=target;
+   return v[mid]==target;
 }
 
 
