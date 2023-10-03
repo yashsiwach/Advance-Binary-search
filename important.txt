@@ -1,0 +1,6 @@
+Binary search on answer: used when  asked to  maximise the minimum or minimise the maximum
+types of problem methods in check funtion 
+1.sweep =includes operations like subarray of grouping of elements in array. keyword:-divide  array 
+eg.painter partations 
+2.atomic =where each eelement operates alone in answer. keywords :for each ..
+eg.factory maching cses

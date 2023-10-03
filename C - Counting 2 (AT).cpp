@@ -1,3 +1,4 @@
+//https://atcoder.jp/contests/abc231/tasks/abc231_c
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -11,22 +12,22 @@ typedef long long ll;
 #define all(x) (x).begin(), (x).end()
 #define debug(x) cerr<<x<<" ";
 
-bool check(vector<int>&v,int mid)
+bool check(vector<ll>&v,ll mid,ll target)
 {
-   return v[mid]-v[mid+1]>0;
+   return v[mid]>=target;
 }
 
 
-//000001111111
-int mintomax(vector<int>&v)
+
+ll mintomax(vector<ll>&v,ll target)
 {
-    int ans=0;
-    int low=0,high=v.size()-1;
+    ll ans=v.size();
+    ll low=0,high=v.size()-1;
     while(low<=high)
     {
-        int mid=low+(high-low)/2;
+        ll mid=low+(high-low)/2;
         
-        if(check(v,mid))
+        if(check(v,mid,target))
         {
             ans=mid;
             high=mid-1;
@@ -36,24 +37,27 @@ int mintomax(vector<int>&v)
             low=mid+1;
         }
     }
+
     return ans;
 
 }
-
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>v[i];    
-    }
+    ll n,k;
+    cin>>n>>k;
+    vector<ll>v(n);
+    for(ll i=0;i<n;i++) cin>>v[i];
 
-    cout<<mintomax(v);
+    sort(v.begin(),v.end());
+    while(k--)
+    {
+        ll target;
+        cin>>target;
+        cout<<n-mintomax(v,target)<<endl;
+    }
     
 }
 
