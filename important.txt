@@ -1,6 +1,19 @@
 Binary search on answer: used when  asked to  maximise the minimum or minimise the maximum
 types of problem methods in check funtion 
+
 1.sweep =includes operations like subarray of grouping of elements in array. keyword:-divide  array 
 eg.painter partations 
+
 2.atomic =where each eelement operates alone in answer. keywords :for each ..
 eg.factory maching cses
+
+3.we can use long long insted of int while dealing with double and precise question ,for loop bhi ll me chlega, high =mid and low =mid (dont add +1 in BS) 
+
+4.everything should be in double in expresion or same datatype 
+
+5.in case of infinite seach space use 
+ (!check()) high*=2;
+
+6.to check 2 number are equal or not in double high-low <1e9 if the differece of both number is less than 1e9 then they are same ; 
+
+7.
