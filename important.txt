@@ -16,4 +16,4 @@ eg.factory maching cses
 
 6.to check 2 number are equal or not in double high-low <1e9 if the differece of both number is less than 1e9 then they are same ; 
 
-7.
+7.mid in case of 2 decimal nos double mid = (low + high) / 2.0;
